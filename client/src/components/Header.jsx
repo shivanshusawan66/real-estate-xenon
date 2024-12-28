@@ -18,8 +18,8 @@ const Header = () => {
   };
 
   const handleAiSearch = () => {
-    navigate('/ai-suggestions')
-  }
+    navigate('/ai-suggestions');
+  };
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
@@ -40,7 +40,6 @@ const Header = () => {
               className="h-10 sm:h-12 md:h-14 lg:h-16 mr-2"  // Increase size here
             />
           </h1>
-
         </Link>
 
         <form onSubmit={handleSubmit} className="bg-white p-3 rounded-lg flex items-center shadow-md">
@@ -56,13 +55,22 @@ const Header = () => {
           </button>
         </form>
 
-        {/* AI Button */}
-        <button
-          className="ml-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
-          onClick={handleAiSearch}
-        >
-          AI Suggestions
-        </button>
+        {/* AI Button with Hover Textbox */}
+        <div className="relative group">
+          <button
+            className="ml-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+            onClick={handleAiSearch}
+          >
+            AI Suggestions
+          </button>
+          
+          {/* Help box that appears on hover */}
+          <div className="absolute top-full mt-2 left-0 w-64 p-2 bg-white rounded-lg shadow-md opacity-0 group-hover:opacity-100 group-hover:block transition-opacity duration-300">
+            <p className="text-sm text-gray-700">
+              Here you can get AI-driven suggestions for better results.
+            </p>
+          </div>
+        </div>
 
         <ul className="flex gap-4">
           <Link to="/">
