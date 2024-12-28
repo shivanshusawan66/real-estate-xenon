@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import lineClamp from '@tailwindcss/line-clamp';
+
 export default {
   content: [
     "./index.html",
@@ -8,7 +10,7 @@ export default {
     extend: {},
   },
   plugins: [
-    require('@tailwindcss/line-clamp'),
-    // ...
+    lineClamp,
+    // other plugins if any
   ],
 }
